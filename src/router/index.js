@@ -28,6 +28,14 @@ const myRoutes = [
         meta: {
             auth: false,
         }
+    },
+    {
+        path: '/detail',
+        name: 'Detail',
+        component: loadView('home/detail'),
+        meta: {
+            auth: false,
+        }
     }
 ];
 const router = createRouter({

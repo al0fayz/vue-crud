@@ -105,7 +105,7 @@
               <td>
                 <router-link :to="'/update?id='+dt.id" class="text-info">Update</router-link>
                 ||
-                <router-link :to="'/detail?id='+dt/id" class="text-success">Detail</router-link>
+                <router-link :to="'/detail?id='+dt.id" class="text-success">Detail</router-link>
               </td>
             </tr>
           </tbody>

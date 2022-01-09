@@ -109,13 +109,12 @@
 </template>
 <script>
 import { reactive } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { useRouter } from "vue-router";
 import dumy from "./dumy";
 import { useVueSweetAlert2 } from "../../useVueSweetAlert2";
 
 export default {
   setup() {
-    const route = useRoute();
     const router = useRouter();
     const $swal = useVueSweetAlert2();
     const state = reactive({
