@@ -1,0 +1,47 @@
+const dumy = [
+    {
+        'id': 1,
+        'name': "Alfa",
+        'date_of_birth': '2022-01-09',
+        'customer_no': '1234567890',
+        'group': 'A',
+        'sub_group': 'ABC',
+        'effective_date': '2022-01-09',
+        'expire_date': '2022-01-09',
+        'status': false,
+    },
+    {
+        'id': 2,
+        'name': "Beta",
+        'date_of_birth': '2022-01-09',
+        'customer_no': '1234567890',
+        'group': 'A',
+        'sub_group': 'ABC',
+        'effective_date': '2022-01-09',
+        'expire_date': '2022-01-09',
+        'status': true,
+    },
+    {
+        'id': 3,
+        'name': "Sinta",
+        'date_of_birth': '2022-01-09',
+        'customer_no': '1234567890',
+        'group': 'A',
+        'sub_group': 'ABC',
+        'effective_date': '2022-01-09',
+        'expire_date': '2022-01-09',
+        'status': false,
+    },
+    {
+        'id': 4,
+        'name': "Bejo",
+        'date_of_birth': '2022-01-09',
+        'customer_no': '1234567890',
+        'group': 'A',
+        'sub_group': 'ABC',
+        'effective_date': '2022-01-09',
+        'expire_date': '2022-01-09',
+        'status': true,
+    }
+]
+export default dumy;
