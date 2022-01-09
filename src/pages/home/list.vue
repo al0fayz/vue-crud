@@ -1,6 +1,8 @@
 <template>
   <div class="mt-3">
-    <router-link to="/create" class="btn btn-info float-right my-2">Add Data</router-link>
+    <router-link to="/create" class="btn btn-info float-right my-2"
+      >Add Data</router-link
+    >
     <div class="card">
       <div class="card-header">
         <form>
@@ -29,7 +31,10 @@
                   >Category</label
                 >
                 <div class="col-sm-8">
-                  <select class="form-select" aria-label="Default select example">
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
                     <option selected>Open this select menu</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
@@ -52,7 +57,10 @@
                   >Status</label
                 >
                 <div class="col-sm-8">
-                  <select class="form-select" aria-label="Default select example">
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
                     <option selected>Open this select menu</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
@@ -101,11 +109,17 @@
               <td>{{ dt.sub_group }}</td>
               <td>{{ dt.effective_date }}</td>
               <td>{{ dt.expire_date }}</td>
-              <td>{{ dt.status? 'Active':'Blocked' }}</td>
+              <td>{{ dt.status ? "Active" : "Blocked" }}</td>
               <td>
-                <router-link :to="'/update?id='+dt.id" class="text-info">Update</router-link>
+                <router-link :to="'/update?id=' + dt.id" class="text-info"
+                  >Update</router-link
+                >
                 ||
-                <router-link :to="'/detail?id='+dt.id" class="text-success">Detail</router-link>
+                <router-link :to="'/detail?id=' + dt.id" class="text-success"
+                  >Detail</router-link
+                >
+                ||
+                <a @click="deleteData(dt.id)" class="text-danger">Delete</a>
               </td>
             </tr>
           </tbody>
@@ -115,18 +129,42 @@
   </div>
 </template>
 <script>
-import { reactive } from 'vue';
-import dumy from './dumy.js';
+import { reactive } from "vue";
+import dumy from "./dumy.js";
+import { useVueSweetAlert2 } from "../../useVueSweetAlert2";
 
 export default {
   setup() {
+    const $swal = useVueSweetAlert2();
     const state = reactive({
-      data: dumy
-    })
-    console.log(new Date())
+      data: dumy,
+    });
+    const deleteData = (id) => {
+      $swal
+        .fire({
+          text: "Apakah Anda yakin Akan Menghapus?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Ya",
+          cancelButtonText: "Tidak",
+          confirmButtonColor: "#b50b1b",
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            var index = state.data
+              .map((x) => {
+                return x.id;
+              })
+              .indexOf(id);
+
+            state.data.splice(index, 1);
+          }
+        });
+    };
     return {
       state,
-    }
+      deleteData,
+    };
   },
-}
+};
 </script>
